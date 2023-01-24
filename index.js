@@ -1,16 +1,15 @@
-// Deck of cards
-const suits = ['hearts', 'diamonds', 'spades', 'clubs']
-const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+var suits = ["spades", "diamonds", "clubs", "hearts"];
+var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
-function getDeck()
-{
-	let deck = new Array();
+function getDeck() {
+	
+    let deck = [];
 
-	for(let i = 0; i < suits.length; i++)
-	{
-		for(let x = 0; x < values.length; x++)
-		{
-			let card = {Value: values[x], Suit: suits[i]};
+	for(let i = 0; i < suits.length; i++) {
+		
+        for(let x = 0; x < values.length; x++) {
+			
+            let card = {Value: values[x], Suit: suits[i]};
 			deck.push(card);
 		}
 	}
@@ -18,13 +17,14 @@ function getDeck()
 	return deck;
 }
 
-function shuffle(deck)
-{
-	// for 1000 turns
+
+function shuffle(deck) {
+	
+    // for 1000 turns
 	// switch the values of two random cards
-	for (let i = 0; i < 1000; i++)
-	{
-		let location1 = Math.floor((Math.random() * deck.length));
+	for (let i = 0; i < 1000; i++) {
+		
+        let location1 = Math.floor((Math.random() * deck.length));
 		let location2 = Math.floor((Math.random() * deck.length));
 		let tmp = deck[location1];
 
@@ -33,12 +33,12 @@ function shuffle(deck)
 	}
 }
 
-function renderDeck(deck)
-{
+function renderDeck(deck) {
+
 	document.getElementById('deck').innerHTML = '';
 
-	for(var i = 0; i < deck.length; i++)
-	{
+	for(var i = 0; i < deck.length; i++) {
+
 		var card = document.createElement("div");
 		var icon = '';
 		if (deck[i].Suit == 'hearts')
@@ -55,3 +55,5 @@ function renderDeck(deck)
 	document.getElementById("deck").appendChild(card);
 	}
 }
+
+getDeck()
